@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html>
+<title>Coffee Talk</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
+<style>
+    body {
+        font-family: "Times New Roman", Georgia, Serif;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Playfair Display";
+        letter-spacing: 5px;
+    }
+    
+    input[type=submit] {
+        padding: 5px 15px;
+        background: white;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        transition-duration: 0.4s;
+    }
+    
+    input[type=submit]:hover {
+        background-color: black;
+        /* Green */
+        color: white;
+    }
+    
+    body {
+        font-family: "Times New Roman", Georgia, Serif;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Playfair Display";
+        letter-spacing: 5px;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    /* Create three equal columns that floats next to each other */
+    
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+            <a href="./index.html" class="w3-bar-item w3-button">Coffee Talk</a>
+            <!-- Right-sided navbar links. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+
+                <a href="./menu.html" class="w3-bar-item w3-button">Menu</a>
+                <script>
+                    //checks if there is a username cookie
+                    var username = getCookie(`username`);
+                    if (username == "") {
+                        document.write(`
+            <a href="./login" class="w3-bar-item w3-button">Login</a>
+            `)
+                    } else {
+                        document.write(`
+            <a href="./logout" class="w3-bar-item w3-button"> Logout</a>
+            `)
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:800px;min-width:250px" id="home">
+
+        <img class="w3-image w3-opacity-min" src="./pictures/20170610_180133.jpg" alt="Hamburger Catering" width="1600" height="800">
+
+
+        <div class="w3-display-middle w3-padding-large">
+            <h1 class="w3-xxlarge">
+
+                <Form action="./checkout" method="GET">
+                    <div style="text-align: center;">
+                        <input type="submit" name="submit" value="Order Here"></div>
+                </Form>
+            </h1>
+        </div>
+    </header>
+
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:1100px">
+
+
+        <!-- Menu Section -->
+        <h1 class="w3-center" id="menu">Popular Items</h1><br>
+        <div class="row">
+            <div class="column">
+                <h4>Hot Drip Coffee</h4>
+                <h5>$3.00</h5>
+                <p class="w3-text-grey"><img src="./pictures/hotdripcoffee.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+
+                <h4>Hot Tea</h4>
+                <h5>$3.00</h5>
+                <p class="w3-text-grey"><img src="./pictures/hottea.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            </div>
+            <div class="column">
+                <h4>Americano</h4>
+                <h5>$4.00</h5>
+                <p class="w3-text-grey"><img src="./pictures/americano.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                <h4>Espresso</h4>
+                <h5>$3.50</h5>
+                <p class="w3-text-grey"><img src="./pictures/espresso.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            </div>
+            <div class="column">
+                <h4>Cold Brew Iced Coffee</h4>
+                <h5>$4.00</h5>
+                <p class="w3-text-grey"><img src="./pictures/coldbrewicedcoffee.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                <h4>Cold Brew</h4>
+                <h5>$5.00</h5>
+                <p class="w3-text-grey"><img src="./pictures/coldbrew.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            </div>
+        </div>
+
+        <h1 class="w3-xxlarge">
+
+            <Form action="./menu.html" method="GET">
+                <div style="text-align: center;">
+                    <input type="submit" name="submit" value="View Full Menu"></div>
+            </Form>
+        </h1>
+
+        <hr>
+
+
+        <div class="container" style="background-color:#f1f1f1">
+
+            <Form action="./cust_point" method="GET">
+                <div style="text-align: center;">
+                    <input type="submit" name="submit" value="point"></div>
+            </Form>
+            </h1>
+
+        </div>
+
+        <!-- End page content -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-light-grey w3-padding-32">
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+        <a href="./loginpage.html">Login</a>
+    </footer>
+
+</body>
+
+</html>
